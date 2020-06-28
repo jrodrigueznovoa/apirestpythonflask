@@ -1,0 +1,292 @@
+{
+	"info": {
+		"_postman_id": "0335130c-a061-4e0a-8373-e4626436242f",
+		"name": "haulmerPostman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "pruebas",
+			"item": [
+				{
+					"name": "issues",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/issues",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"issues"
+							]
+						},
+						"description": "el endpoint issues será de acceso público, es decir, no\r\nrequiere autenticación."
+					},
+					"response": []
+				},
+				{
+					"name": "agentes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTMyOTU3OTEsImlhdCI6MTU5MzI5NTQ5MSwibmJmIjoxNTkzMjk1NDkxLCJpZGVudGl0eSI6IjMifQ.U1ROm7dxs9vYdlukGHmRlhrZhaGBr96p_gYt7i1CNqs"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/agente",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"agente"
+							]
+						},
+						"description": "Obtiene el nombre de usuario y password, requiere token"
+					},
+					"response": []
+				},
+				{
+					"name": "issue/<id>",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/issue/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"issue",
+								"1"
+							]
+						},
+						"description": "metodo GET para obtener una incidencia filtrado con su codigo id requiere token ejemplo request"
+					},
+					"response": []
+				},
+				{
+					"name": "issue",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTMyOTY5NTEsImlhdCI6MTU5MzI5NjY1MSwibmJmIjoxNTkzMjk2NjUxLCJpZGVudGl0eSI6IjMifQ.710fz6UzmxV5vZ_hEw7QP6Syy7_mSURmJfLOBdb-qXE"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fecha\": \"26/06/2017 21:14:00\",\r\n    \"titulo\": \"error en el servidor\",\r\n    \"descripcion\": \"Servicio Apache caído\",\r\n    \"agent\": \"srv1.agente6.com\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/issue",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"issue"
+							]
+						},
+						"description": "Registra una nueva incidencia, requiere token"
+					},
+					"response": []
+				},
+				{
+					"name": "auth",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"user3\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/auth",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registrar_usuario",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\": \"jrodriguezn\",\r\n    \"password\": \"123456\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/agente",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"agente"
+							]
+						},
+						"description": "Registra un usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "issues/<filter>",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTMyOTc0ODYsImlhdCI6MTU5MzI5NzE4NiwibmJmIjoxNTkzMjk3MTg2LCJpZGVudGl0eSI6IjMifQ.OQgRLntkCDXCkGflCMP9EjxpdbB8mt-aik5vZVkCajQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/issues/srv1.agente2.com",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"issues",
+								"srv1.agente2.com"
+							]
+						},
+						"description": "Filtra las incidencias de un agente"
+					},
+					"response": []
+				},
+				{
+					"name": "issues/<dia>/<mes>/<anio>_filtrofecha",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTMyOTc1OTcsImlhdCI6MTU5MzI5NzI5NywibmJmIjoxNTkzMjk3Mjk3LCJpZGVudGl0eSI6IjMifQ.8Dmf1KTtWnVvQOw7UckZV0ebdC28zlcZ6_1J2XaIa1I"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/issues/26/06/2020",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"issues",
+								"26",
+								"06",
+								"2020"
+							]
+						},
+						"description": "filtra las incidencias con fecha"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
